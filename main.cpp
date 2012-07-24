@@ -8,10 +8,13 @@ int main()
 {
 	int delay = 100000; //Microsecond delay, 1,000,000 in one second
 
+	//Instantiate the four snake objects.
+	//(xpos, ypos, xdir, ydir, length, string)
+
 	Snake snakeone(12, 12, 1, 1, 15, "1**************");
-	Snake snaketwo(40, 10, -1, 1, 10, "2*********");
-	Snake snakethree(50, 40, -1, -1, 20, "3*******************");
-	Snake snakefour (20, 0, 1, 1, 12, "4**********#");
+	//Snake snaketwo(40, 10, -1, 1, 10, "2*********");
+	//Snake snakethree(50, 40, -1, -1, 20, "3*******************");
+	//Snake snakefour (20, 0, 1, 1, 12, "4**********#");
 
 	initscr(); 		//Start ncurses
 	noecho();  		//Don't print keyboard input
@@ -20,29 +23,29 @@ int main()
 
 	while(1)
 	{
-		clear();
-		snakeone.Draw();
-		snakeone.Iterate();
+		clear();				//Wipe screen
+		snakeone.Draw();		//Draw snake one
+		snakeone.Iterate();		//Update x and y positions
 
-		snaketwo.Draw();
-		snaketwo.Iterate();
+		//snaketwo.Draw();		//etc.
+		//snaketwo.Iterate();
 
-		snakethree.Draw();
-		snakethree.Iterate();
+		//snakethree.Draw();
+		//snakethree.Iterate();
 
-		snakefour.Draw();
-		snakefour.Iterate();
+		//snakefour.Draw();
+		//snakefour.Iterate();
 
-		refresh();
+		refresh();				//Write to screen
 
-		usleep(delay);
+		usleep(delay);			//Wait
 
-		if (getch() == 'q')
+		if (getch() == 'q')		//Look for 'q' keypress to quit
 		{
 			break;
 		}
 	}
 
-	endwin();
+	endwin();		//Stop ncurses
 	return 0;
 }

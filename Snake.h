@@ -11,21 +11,28 @@
 #include <ncurses.h>
 #include <cstdlib>
 #include <string>
+#include <vector>
+#include <snakesector.h>
 
 namespace std {
 
 class Snake {
 
 private:
-	int xpos;
-	int ypos;
+	int xpos;				//X position of the snake's head
+	int ypos;				//Y position of the snake's head
 
-	int xdir;
-	int ydir;
+	int xdir;				//X direction. 1 = Right, -1 = Left
+	int ydir;				//Y direction. 1 = Down, -1 = Up
 
-	int length;
+	int length;				//Length of the snake in characters
 
-	string printstring;
+	string printstring;		//The string to represent the snake.
+							//Prints one character from the string
+							//for each character of the snake's length.
+							//A string shorter than the snake's length will loop.
+
+	vector<snakesector> sectors;
 
 public:
 	Snake(int inxpos, int inypos, int inxdir, int inydir, int inlength, string inprintstring);
