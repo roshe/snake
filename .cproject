@@ -18,9 +18,9 @@
 					<folderInfo id="cdt.managedbuild.config.gnu.exe.debug.381356248." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.exe.debug.1335178864" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.exe.debug">
 							<targetPlatform id="cdt.managedbuild.target.gnu.platform.exe.debug.1502009876" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.exe.debug"/>
-							<builder buildPath="${workspace_loc:/snake/Debug}" id="cdt.managedbuild.target.gnu.builder.exe.debug.1966826451" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.exe.debug"/>
+							<builder autoBuildTarget="all" buildPath="${workspace_loc:/Snake/Debug}" cleanBuildTarget="clean" enableAutoBuild="false" enableCleanBuild="true" enabledIncrementalBuild="true" id="cdt.managedbuild.target.gnu.builder.exe.debug.1966826451" incrementalBuildTarget="all" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" parallelBuildOn="false" superClass="cdt.managedbuild.target.gnu.builder.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.gnu.archiver.base.887906657" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
-							<tool command="g++ -Wall" id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.123132762" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug">
+							<tool command="g++ -Wall -pedantic" id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.123132762" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug">
 								<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.1955198764" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.1415830909" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1492224190" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -98,21 +98,6 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="snake.cdt.managedbuild.target.gnu.exe.746425085" name="Executable" projectType="cdt.managedbuild.target.gnu.exe"/>
 	</storageModule>
-	<storageModule moduleId="scannerConfiguration">
-		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.4024962;cdt.managedbuild.config.gnu.exe.release.4024962.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.2079619774;cdt.managedbuild.tool.gnu.c.compiler.input.90562990">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.381356248;cdt.managedbuild.config.gnu.exe.debug.381356248.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.123132762;cdt.managedbuild.tool.gnu.cpp.compiler.input.1492224190">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.4024962;cdt.managedbuild.config.gnu.exe.release.4024962.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1462773396;cdt.managedbuild.tool.gnu.cpp.compiler.input.767606477">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.381356248;cdt.managedbuild.config.gnu.exe.debug.381356248.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.2010418328;cdt.managedbuild.tool.gnu.c.compiler.input.121242259">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope" versionNumber="2">
 		<configuration configurationName="Release">
@@ -124,4 +109,19 @@
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.381356248;cdt.managedbuild.config.gnu.exe.debug.381356248.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.123132762;cdt.managedbuild.tool.gnu.cpp.compiler.input.1492224190">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.4024962;cdt.managedbuild.config.gnu.exe.release.4024962.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.2079619774;cdt.managedbuild.tool.gnu.c.compiler.input.90562990">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.381356248;cdt.managedbuild.config.gnu.exe.debug.381356248.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.2010418328;cdt.managedbuild.tool.gnu.c.compiler.input.121242259">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.4024962;cdt.managedbuild.config.gnu.exe.release.4024962.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1462773396;cdt.managedbuild.tool.gnu.cpp.compiler.input.767606477">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+	</storageModule>
 </cproject>

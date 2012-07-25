@@ -11,7 +11,7 @@ int main()
 	//Instantiate the four snake objects.
 	//(xpos, ypos, xdir, ydir, length, string)
 
-	Snake snakeone(12, 12, 1, 1, 15, "1**************");
+	Snake snakeone(12, 12, 1, 1, 10, "1#########");
 	//Snake snaketwo(40, 10, -1, 1, 10, "2*********");
 	//Snake snakethree(50, 40, -1, -1, 20, "3*******************");
 	//Snake snakefour (20, 0, 1, 1, 12, "4**********#");

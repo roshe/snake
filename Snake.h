@@ -12,16 +12,19 @@
 #include <cstdlib>
 #include <string>
 #include <vector>
-#include <snakesector.h>
 
 namespace std {
+
+struct snakesector
+{
+	int xpos;
+	int ypos;
+	char printchar;
+};
 
 class Snake {
 
 private:
-	int xpos;				//X position of the snake's head
-	int ypos;				//Y position of the snake's head
-
 	int xdir;				//X direction. 1 = Right, -1 = Left
 	int ydir;				//Y direction. 1 = Down, -1 = Up
 
