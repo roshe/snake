@@ -9,59 +9,32 @@
 
 namespace std{
 
-Snake::Snake(int inxpos, int inypos, int inxdir, int inydir, int inlength, string inprintstring)
+Snake::Snake(int inxpos, int inypos, int inxdir, int inydir, string inprintstring)
 {
 	int i = 0;
 
-	int maxx;
-	int maxy;
-	int minx;
-	int miny;
-
-	int xdirtemp;
-	int ydirtemp;
-
 	xdir = inxdir;
 	ydir = inydir;
-	length = inlength;
 	printstring = inprintstring;
+	length = printstring.length();
 
 	sectors.resize(length);
 
 	sectors[0].xpos = inxpos;
 	sectors[0].ypos = inypos;
 
-	xdirtemp = xdir;
-	ydirtemp = ydir;
-
 	for(i = 0; i < length; i++)
 	{
-		sectors[i].printchar = '#';//printstring[i];
+		sectors[i].printchar = printstring[i];
 	}
 
 
 	i = 1;
 
-	//Get min and max coordinates for the screen.
-	getmaxyx(stdscr, maxy, maxx);
-	getbegyx(stdscr, miny, minx);
-
-	maxx = maxx - 1;
-	maxy = maxy - 1;
-
 	for(i = 1; i < length; i++)
 	{
-		sectors[i].xpos = sectors[0].xpos - (xdirtemp * i);
-		sectors[i].ypos = sectors[0].ypos - (ydirtemp * i);
-
-		if (sectors[i].xpos >= maxx || sectors[i].xpos <= minx)
-		{
-			xdirtemp = 0 - xdirtemp;
-		}
-		if (sectors[i].ypos >= maxy || sectors[i].ypos <= miny)
-		{
-			ydirtemp = 0 - ydirtemp;
-		}
+		sectors[i].xpos = sectors[0].xpos - (xdir * i);
+		sectors[i].ypos = sectors[0].ypos - (ydir * i);
 	}
 
 	refresh();
@@ -74,18 +47,19 @@ Snake::~Snake() {
 void Snake::Draw() //Draws the snake, starting from the head.
 {
 	int i = 0;
+	
+	int maxx, maxy, minx, miny;
+
+	getmaxyx(stdscr, maxy, maxx);
+	getbegyx(stdscr, miny, minx);
 
 	for(i = 0; i < length; i++)
 	{
-		move(sectors[i].ypos, sectors[i].xpos);
-		printw("%c", sectors[i].printchar);
-	}
-
-	move(30,30);
-
-	for(i = 0; i < length; i++)
-	{
-		printw("%d:%d, ", sectors[i].xpos, sectors[i].ypos);
+		if((miny <= sectors[i].ypos) && (sectors[i].ypos < maxy) && (minx <= sectors[i].xpos) && (sectors[i].xpos < maxx))
+		{
+			move(sectors[i].ypos, sectors[i].xpos);
+			printw("%c", sectors[i].printchar);
+		}
 	}
 }
 
@@ -98,6 +72,10 @@ void Snake::Iterate() //Fills the sectors vector with the coordinates of the sna
 
 	int i = length;
 
+	vector<snakesector> sectorstemp;
+
+	sectorstemp.resize(length);
+
 	//Get min and max coordinates for the screen.
 	getmaxyx(stdscr, maxy, maxx);
 	getbegyx(stdscr, miny, minx);
@@ -105,14 +83,23 @@ void Snake::Iterate() //Fills the sectors vector with the coordinates of the sna
 	maxx = maxx - 1;
 	maxy = maxy - 1;
 
-	for(i = length; i > 2; i--)
+	sectorstemp[0].xpos = sectors[0].xpos;
+	sectorstemp[0].ypos = sectors[0].ypos;
+
+	for(i = 1; i < length; i++)
 	{
-		sectors[i].xpos = sectors[i - 1].xpos;
-		sectors[i].ypos = sectors[i - 1].ypos;
+		sectorstemp[i].xpos = sectors[i-1].xpos;
+		sectorstemp[i].ypos = sectors[i-1].ypos;
 	}
 
-	sectors[0].xpos += xdir;
-	sectors[0].ypos += ydir;
+	sectorstemp[0].xpos += xdir;
+	sectorstemp[0].ypos += ydir;
+
+	for(i = 0; i < length; i++)
+	{
+		sectors[i].xpos = sectorstemp[i].xpos;
+		sectors[i].ypos = sectorstemp[i].ypos;
+	}
 
 	if(sectors[0].xpos >= maxx || sectors[0].xpos <= minx)
 	{
@@ -124,6 +111,5 @@ void Snake::Iterate() //Fills the sectors vector with the coordinates of the sna
 		ydir = 0 - ydir;
 	}
 }
-
 
 } /* namespace Snake */
