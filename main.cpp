@@ -11,10 +11,10 @@ int main()
 	//Instantiate the four snake objects.
 	//(xpos, ypos, xdir, ydir, length, string)
 
-	Snake snakeone(12, 12, 1, 1, 10, "1#########");
-	//Snake snaketwo(40, 10, -1, 1, 10, "2*********");
-	//Snake snakethree(50, 40, -1, -1, 20, "3*******************");
-	//Snake snakefour (20, 0, 1, 1, 12, "4**********#");
+	Snake snakeone(12, 12, 1, 1,     "1*****");
+	Snake snaketwo(40, 10, -1, 1,    "2*******");
+	Snake snakethree(50, 40, -1, -1, "3*********");
+	Snake snakefour (20, 0, 1, 1,    "4***********");
 
 	initscr(); 		//Start ncurses
 	noecho();  		//Don't print keyboard input
@@ -24,17 +24,17 @@ int main()
 	while(1)
 	{
 		clear();				//Wipe screen
-		snakeone.Draw();		//Draw snake one
-		snakeone.Iterate();		//Update x and y positions
+		snakeone.Draw();		//Draw all snake sectors
+		snakeone.Iterate();		//Update sector coordinates
 
-		//snaketwo.Draw();		//etc.
-		//snaketwo.Iterate();
+		snaketwo.Draw();		//etc.
+		snaketwo.Iterate();
 
-		//snakethree.Draw();
-		//snakethree.Iterate();
+		snakethree.Draw();
+		snakethree.Iterate();
 
-		//snakefour.Draw();
-		//snakefour.Iterate();
+		snakefour.Draw();
+		snakefour.Iterate();
 
 		refresh();				//Write to screen
 

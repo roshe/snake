@@ -36,9 +36,10 @@ private:
 							//A string shorter than the snake's length will loop.
 
 	vector<snakesector> sectors;
-
+	
 public:
-	Snake(int inxpos, int inypos, int inxdir, int inydir, int inlength, string inprintstring);
+
+	Snake(int inxpos, int inypos, int inxdir, int inydir, string inprintstring);
 	virtual ~Snake();
 
 	void Iterate();
